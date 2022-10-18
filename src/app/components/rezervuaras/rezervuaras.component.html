@@ -1,0 +1,54 @@
+<div class="row mt-5">
+  <div class="col-md-6">
+    <div class="card">
+
+
+
+      <div class="card-header">Rezervuaro užpildymo skaičiuoklė</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label>Rezervuaro talpa:</label>
+          <input type="number" class="form-control" [(ngModel)]="talpa" >
+        </div>
+        <div class="mb-3">
+          <label>Rezervuaro pildymo laikas:</label>
+          <input type="number" class="form-control" [(ngModel)]="laikas">
+        </div>
+        <div class="mb-3">
+          <label>Rezervuaro pildymo greitis:</label>
+          <input type="number" class="form-control" [(ngModel)]="greitis">
+        </div>
+        <button class="btn btn-success" [disabled]="talpa==null || laikas==null || greitis==null"  (click)="skaiciuoti()" >Skaičiuoti</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+
+
+
+      <div class="card-header">Rezervuaras užpildytas procentais:</div>
+      <div class="card-body">
+        <div *ngIf="procentai!=null"> Rezultatas: {{ procentai }} %</div>
+        
+        <div *ngIf="procentai==null"> Įveskite laiką, greitį, talpą ir paspauskite skaičiuoti</div>
+        <div *ngIf="procentai!=null">
+        <div *ngIf="procentai!<80">
+          <div class="alert alert-primary">Rezervuaro talpos užpildymas normos ribose.</div>
+        </div>
+        <div *ngIf="procentai==80 || procentai!>80 && procentai!<100">
+          <div class="alert alert-warning">Rezervuaro talpa kritiškai pripildyta.</div>
+        </div>
+          <div *ngIf="procentai==100 || procentai!>100">
+            <div class="alert alert-danger">TALPA PERPILDYTA! </div>
+          </div>
+        </div>
+
+        <!--        <div *ngIf="moreThan80;">blogai ok</div>-->
+<!--        <div *ngIf="moreThan100;">sudas ne ok </div>-->
+
+      </div>
+  </div>
+</div>
+</div>
