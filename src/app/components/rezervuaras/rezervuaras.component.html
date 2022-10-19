@@ -30,25 +30,22 @@
 
       <div class="card-header">Rezervuaras užpildytas procentais:</div>
       <div class="card-body">
-        <div *ngIf="procentai!=null"> Rezultatas: {{ procentai }} %</div>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-label="Basic example" style="width: {{ procentai }}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+
+        <div class="progress mb-3">
+          <div class="progress-bar" role="progressbar" [style.width.%]=" procentai" aria-label="Basic example" style="width:0%" ><div *ngIf="procentai!=null"> {{ procentai }} %</div></div>
         </div>
         <div *ngIf="procentai==null"> Įveskite laiką, greitį, talpą ir paspauskite skaičiuoti</div>
         <div *ngIf="procentai!=null">
-        <div *ngIf="procentai!<80">
+        <div *ngIf="procentai<80">
           <div class="alert alert-primary">Rezervuaro talpos užpildymas normos ribose.</div>
         </div>
-        <div *ngIf="procentai!>=80 && procentai!<100">
+        <div *ngIf="procentai>=80 && procentai<100">
           <div class="alert alert-warning">Rezervuaro talpa kritiškai pripildyta.</div>
         </div>
-          <div *ngIf="procentai!>=100">
+          <div *ngIf="procentai>=100">
             <div class="alert alert-danger">TALPA PERPILDYTA! </div>
           </div>
         </div>
-
-        <!--        <div *ngIf="moreThan80;">blogai ok</div>-->
-<!--        <div *ngIf="moreThan100;">sudas ne ok </div>-->
 
       </div>
   </div>
