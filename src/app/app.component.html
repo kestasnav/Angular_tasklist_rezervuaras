@@ -1,11 +1,16 @@
-<div class="container">
+
+<app-nav-bar></app-nav-bar>
+
+<div class="container mb-5">
   <div class="row mt-5">
-    <div class="col-md-6">
-      <app-task-list ></app-task-list>
+
+
+      <div class="col-md-2"> </div>
+      <div class="col-md-8">
+      <router-outlet></router-outlet>
+      </div>
+      <div class="col-md-2"> </div>
     </div>
-    <div class="col-md-6">
-      <app-new-task></app-new-task>
-    </div>
-  </div>
+
 
 </div>

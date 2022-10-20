@@ -10,7 +10,7 @@
 
         <select [(ngModel)]="type">
 
-          <option disabled>Pasirinkite tipą</option>
+          <option disabled value="">Pasirinkite tipą</option>
 
           <option *ngFor="let type of types" >{{type}}</option>
 
@@ -19,4 +19,5 @@
     </div>
     <button class="btn btn-success" (click)="addTask()" [disabled]="text==null || type==null">Pridėti</button>
   </div>
+
 </div>

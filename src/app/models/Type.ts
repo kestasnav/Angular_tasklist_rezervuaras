@@ -1,6 +1,6 @@
 export class Type{
   constructor(
-    public type:string)
+    public type:any)
   {
 
   }
