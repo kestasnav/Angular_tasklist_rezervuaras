@@ -18,7 +18,6 @@ export class TaskDetailsComponent implements OnInit {
   }
  public calculate(tipas:string){
     const tasks=this.taskService.tasks;
-
     this.countTypes=0;
     tasks.forEach((task)=> {
       if (task.type == tipas ) {
@@ -32,6 +31,9 @@ return this.countTypes;
   constructor(private taskService:TasksService) {
       this.countcalculate();
 
+    this.taskService.taskUpdate.subscribe(()=> {
+      this.count = this.taskService.tasks.length
+    });
   }
 
   ngOnInit(): void {
