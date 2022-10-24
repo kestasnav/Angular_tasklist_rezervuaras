@@ -11,13 +11,16 @@ import {RouterModule, Routes} from "@angular/router";
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AboutComponent } from './components/about/about.component';
 import {EditTaskComponent} from "./components/edit-task/edit-task.component";
+import { CurrenciesComponent } from './components/currencies/currencies.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes:Routes=[
   {path:"", component:TaskListComponent},
   {path:"new", component:NewTaskComponent},
   {path:"rezervuaras", component:RezervuarasComponent},
   {path:"about", component:AboutComponent},
-  {path:"edit/:id", component:EditTaskComponent}
+  {path:"edit/:id", component:EditTaskComponent},
+  {path:"currencies", component:CurrenciesComponent},
 ]
 
 @NgModule({
@@ -29,13 +32,15 @@ const appRoutes:Routes=[
     TaskDetailsComponent,
     NavBarComponent,
     AboutComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    CurrenciesComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

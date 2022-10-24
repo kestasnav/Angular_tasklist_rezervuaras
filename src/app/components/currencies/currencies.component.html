@@ -1,0 +1,26 @@
+<div *ngIf="loading==false && error==false" class="alert alert-success">
+  Valiutos keitimo kursas iš {{ base }} į {{ key }} yra: {{ currency }}.
+</div>
+<div *ngIf="loading==true && error==false" class="alert alert-info">Loading...</div>
+<div *ngIf="loading==false && error==true" class="alert alert-danger">Klaida parsiunčiant duomenis</div>
+<div class="row">
+  <div class="col-md-6">
+    <select [(ngModel)]="fromCurrency"  class="form-control">
+      <option *ngFor="let f of keys ">{{ f }}
+
+      </option>
+    </select>
+
+  </div>
+  <div class="col-md-6">
+    <select [(ngModel)]="toCurrency"  class="form-control">
+      <option *ngFor="let t of keys">{{ t }}</option>
+    </select>
+
+  </div>
+  <div class="col-md-6 mt-2"><button (click)="clickLoadCurrency()" class="btn btn-success">Perskai</button>
+  </div>
+</div>
+
+
+
