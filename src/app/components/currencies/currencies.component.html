@@ -6,19 +6,17 @@
 <div class="row">
   <div class="col-md-6">
     <select [(ngModel)]="fromCurrency"  class="form-control">
-      <option *ngFor="let f of keys ">{{ f }}
-
-      </option>
+      <option *ngFor="let t of keys | keyvalue" [value]="t.key" >{{ t.value }}</option>
     </select>
 
   </div>
   <div class="col-md-6">
     <select [(ngModel)]="toCurrency"  class="form-control">
-      <option *ngFor="let t of keys">{{ t }}</option>
+      <option *ngFor="let t of keys | keyvalue" [value]="t.key" >{{ t.value }}</option>
     </select>
 
   </div>
-  <div class="col-md-6 mt-2"><button (click)="clickLoadCurrency()" class="btn btn-success">Perskai</button>
+  <div class="col-md-6 mt-2"><button (click)="clickLoadCurrency()" class="btn btn-success">Perskaičiuoti</button>
   </div>
 </div>
 

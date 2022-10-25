@@ -19,7 +19,7 @@ export class CurrenciesComponent implements OnInit {
   public toCurrency:any='USD';
 
   public keys:any;
-  public countries:any;
+
 
   constructor(private currenciesService:CurrencyService) {
       this.loadCurrency();
@@ -30,9 +30,7 @@ export class CurrenciesComponent implements OnInit {
 private getKeysMethod() {
     this.currenciesService.getKeys().subscribe({
       next:(response)=>{
-        this.keys=Object.keys(response);
-        this.countries=Object.values(response);
-
+        this.keys=response;
       }
     })
 }
@@ -44,6 +42,7 @@ private getKeysMethod() {
       {
         next:(response)=>{
           this.currency=Object.values(response.rates);
+
           this.key=Object.keys(response.rates);
           this.base=response.base;
 
