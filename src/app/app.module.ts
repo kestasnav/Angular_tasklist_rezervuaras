@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+
 import {FormsModule} from "@angular/forms";
 import { RezervuarasComponent } from './components/rezervuaras/rezervuaras.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
@@ -13,6 +14,9 @@ import { AboutComponent } from './components/about/about.component';
 import {EditTaskComponent} from "./components/edit-task/edit-task.component";
 import { CurrenciesComponent } from './components/currencies/currencies.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ListComponent } from './components/courses/list/list.component';
+import { EditComponent } from './components/courses/edit/edit.component';
+import { CreateComponent } from './components/courses/create/create.component';
 
 const appRoutes:Routes=[
   {path:"", component:TaskListComponent},
@@ -21,6 +25,9 @@ const appRoutes:Routes=[
   {path:"about", component:AboutComponent},
   {path:"edit/:id", component:EditTaskComponent},
   {path:"currencies", component:CurrenciesComponent},
+  {path:"courses", component:ListComponent},
+  {path:"courses/:id", component:EditComponent},
+  {path:"createcourse", component:CreateComponent},
 ]
 
 @NgModule({
@@ -33,7 +40,10 @@ const appRoutes:Routes=[
     NavBarComponent,
     AboutComponent,
     EditTaskComponent,
-    CurrenciesComponent
+    CurrenciesComponent,
+    ListComponent,
+    EditComponent,
+    CreateComponent
 
   ],
   imports: [
