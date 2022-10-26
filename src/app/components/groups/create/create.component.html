@@ -1,0 +1,50 @@
+
+<div class="row">
+  <div class="col-md-12 mt-5">
+    <div class="card">
+      <div class="card-header">Create form</div>
+      <div class="card-body">
+        <form #f="ngForm"  (ngSubmit)="onClickSave(f)">
+
+          <div class="mb-3">
+            <label class="form-label">Grupės pavadinimas</label>
+            <input type="text" name="name" ngModel required minlength="2" class="form-control" #fname="ngModel">
+            <div *ngIf="!fname.valid && fname.touched " class="alert alert-danger mt-2">Pavadinimas privalomas, ir turi būti ne trumpesnis, nei 2 simboliai</div>
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Kursas</label>
+            <select class="form-control" name="course_id" ngModel>
+              <option *ngFor="let t of courses" [value]="t.id">{{ t.name }}</option>
+            </select>
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Grupės mokslų pradžia</label>
+            <input type="date" name="start" ngModel required  class="form-control" #fstart="ngModel">
+            <div *ngIf="!fstart.valid && fstart.touched " class="alert alert-danger mt-2">Grupės pradžia privaloma</div>
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Grupės mokslų pabaiga</label>
+            <input type="date" name="end" ngModel required minlength="2" class="form-control" #fend="ngModel">
+            <div *ngIf="!fend.valid && fend.touched " class="alert alert-danger mt-2">Grupės pabaiga privaloma</div>
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Dėstytojas</label>
+            <select class="form-control" name="lecturer_id" ngModel>
+              <option *ngFor="let t of lecturers" [value]="t.id">{{ t.name }} {{ t.surname }}</option>
+            </select>
+
+          </div>
+
+          <button [disabled]="!f.valid"  type="submit" class="btn btn-success">Išsaugoti</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

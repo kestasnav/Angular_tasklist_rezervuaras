@@ -14,9 +14,11 @@ import { AboutComponent } from './components/about/about.component';
 import {EditTaskComponent} from "./components/edit-task/edit-task.component";
 import { CurrenciesComponent } from './components/currencies/currencies.component';
 import {HttpClientModule} from "@angular/common/http";
-import { ListComponent } from './components/courses/list/list.component';
+import {ListComponent} from './components/courses/list/list.component';
 import { EditComponent } from './components/courses/edit/edit.component';
 import { CreateComponent } from './components/courses/create/create.component';
+import {GroupListComponent} from "./components/groups/list/list.component";
+import {CreateGroupComponent} from "./components/groups/create/create.component";
 
 const appRoutes:Routes=[
   {path:"", component:TaskListComponent},
@@ -28,6 +30,8 @@ const appRoutes:Routes=[
   {path:"courses", component:ListComponent},
   {path:"courses/:id", component:EditComponent},
   {path:"createcourse", component:CreateComponent},
+  {path:"groups", component:GroupListComponent},
+  {path:"creategroup", component:CreateGroupComponent},
 ]
 
 @NgModule({
@@ -43,7 +47,9 @@ const appRoutes:Routes=[
     CurrenciesComponent,
     ListComponent,
     EditComponent,
-    CreateComponent
+    CreateComponent,
+    GroupListComponent,
+    CreateGroupComponent
 
   ],
   imports: [

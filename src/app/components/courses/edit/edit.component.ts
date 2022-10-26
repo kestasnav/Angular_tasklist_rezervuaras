@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CoursesService} from "../../../services/courses.service";
 import {Course} from "../../../models/Course";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-edit',
@@ -28,16 +29,13 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onClickSave(){
-    if (this.name){
-      const course:Course={
-        id:this.id,
-        name:this.name,
-      };
+  public onClickSave(f:NgForm){
+
+    const course:Course=<Course>f.value;
       this.courseService.updateCourse(course).subscribe(()=>{
         this.router.navigate(["/courses"]);
       });
-    };
+
   }
 
 }
