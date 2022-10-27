@@ -24,12 +24,37 @@
         <li class="nav-item float-end">
           <a class="nav-link active" routerLink="/currencies">Valiutų skaičiuoklė</a>
         </li>
-        <li class="nav-item float-end">
-          <a class="nav-link active" routerLink="/courses">Kursai</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Baltic Talents
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item"  routerLink="/courses">Kursai</a></li>
+            <li><a class="dropdown-item" routerLink="/groups">Grupės</a></li>
+
+          </ul>
         </li>
-        <li class="nav-item float-end">
-          <a class="nav-link active" routerLink="/groups">Grupės</a>
+        <li class="nav-item dropdown float-end">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profilis
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item"  routerLink="/profile">Profilio info</a></li>
+            <li><hr class="dropdown-divider"></li>
+
+              <li *ngIf="user==null" class="nav-item">
+                <a class="dropdown-item" routerLink="/login">Prisijungti</a>
+              </li>
+
+
+              <li *ngIf="user!=null" class="nav-item">
+                <button class="dropdown-item" (click)="onClickLogout()">Atsijungti</button>
+              </li>
+
+
+          </ul>
         </li>
+
 
       </ul>
     </div>

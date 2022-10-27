@@ -13,12 +13,15 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AboutComponent } from './components/about/about.component';
 import {EditTaskComponent} from "./components/edit-task/edit-task.component";
 import { CurrenciesComponent } from './components/currencies/currencies.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ListComponent} from './components/courses/list/list.component';
 import { EditComponent } from './components/courses/edit/edit.component';
 import { CreateComponent } from './components/courses/create/create.component';
 import {GroupListComponent} from "./components/groups/list/list.component";
 import {CreateGroupComponent} from "./components/groups/create/create.component";
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { LoginComponent } from './components/login/login.component';
+import {AuthInterceptor} from "./services/auth.interceptor";
 
 const appRoutes:Routes=[
   {path:"", component:TaskListComponent},
@@ -32,6 +35,8 @@ const appRoutes:Routes=[
   {path:"createcourse", component:CreateComponent},
   {path:"groups", component:GroupListComponent},
   {path:"creategroup", component:CreateGroupComponent},
+  {path:"profile", component:UserProfileComponent},
+  {path:"login", component:LoginComponent},
 ]
 
 @NgModule({
@@ -49,7 +54,9 @@ const appRoutes:Routes=[
     EditComponent,
     CreateComponent,
     GroupListComponent,
-    CreateGroupComponent
+    CreateGroupComponent,
+    UserProfileComponent,
+    LoginComponent
 
   ],
   imports: [
@@ -58,7 +65,13 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
